@@ -44,7 +44,6 @@ Route::post('/', function () {
     if($returnData['postError'] == "" && $url !== null) {
         $crawler = new App\Http\Controllers\crawlerController;
         $returnData['crawl'] = $crawler->crawlCommander($url, $crawlDepth);
-        //dd($x);
     }
 
     return view('pagecrawl', $returnData);

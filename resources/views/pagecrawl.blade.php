@@ -109,26 +109,3 @@
         </script>
     </body>
 </html>
-
-<!-- 
-array:11 [▼
-  "totalPagesCrawled" => 6
-  "pages" => array:6 [▼
-    "https://agencyanalytics.com/" => 200
-    "https://agencyanalytics.com/report-templates" => 200
-    "https://agencyanalytics.com/feature/white-label" => 200
-    "https://agencyanalytics.com/competitor/seranking-alternative" => 200
-    "https://agencyanalytics.com/competitor/ninjacat-alternative" => 200
-    "https://agencyanalytics.com/company/customers" => 200
-  ]
-  "totalUniqueImages" => 109
-  "uniqueImages" => array:109 [▶]
-  "totalUniqueInternalLinks" => 160
-  "uniqueInternalLinks" => array:160 [▶]
-  "totalUniqueExternalLinks" => 37
-  "uniqueExternalLinks" => array:37 [▶]
-  "avgPageLoad" => 0.29
-  "avgWordCount" => 1386.8
-  "avgTitleLength" => 75.8
-]
- -->

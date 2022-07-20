@@ -36,8 +36,6 @@ class crawlerController extends Controller
             }
         }
 
-        //dd($pages);
-
         // Formatting data to return to the view
         $returnData = [];
         // Number of pages crawled
@@ -50,7 +48,6 @@ class crawlerController extends Controller
         $totalPageLoadTime = 0;
         $totalWordCount = 0;
         $totalTitleLength = 0;
-
 
         foreach ($pages as $pageName => $pageData) {
             
@@ -117,14 +114,9 @@ class crawlerController extends Controller
         @$dom->loadHTML($returnval);
         $returnData['pageLoadTime'] = number_format(microtime(true) - $pageLoadStart, 3);
         $returnData['httpCode'] = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        if($returnData['httpCode'] == 0) {
-            //dd(curl_error($ch));
-            //dd($url);
-            return false;
-        }
+        if($returnData['httpCode'] == 0) return false;
 
         // Get page contents with tags stripped
-        //if(null == $dom->getElementsByTagName("body")->item(0)) dd($url . " - ".count($dom->getElementsByTagName("body")) . " - ".$returnData['httpCode']);
         $strippedHtml = $dom->getElementsByTagName("body")->item(0);
         if(null != $strippedHtml->getElementsByTagName("script")) {
             while (($scr = $strippedHtml->getElementsByTagName("script")) && $scr->length) {
