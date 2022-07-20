@@ -95,10 +95,6 @@ class crawlerController extends Controller
         // Average title length
         $returnData['avgTitleLength'] = $totalTitleLength / $depth;
 
-        // Url
-        // StatusCode
-
-        //dd($returnData);
         return $returnData;
     }
 
@@ -115,13 +111,15 @@ class crawlerController extends Controller
         curl_setopt ($ch, CURLOPT_HEADER, 0);
         curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         $returnval = curl_exec ($ch);
         @$dom->loadHTML($returnval);
         $returnData['pageLoadTime'] = number_format(microtime(true) - $pageLoadStart, 3);
         $returnData['httpCode'] = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if($returnData['httpCode'] == 0) {
             //dd(curl_error($ch));
-            dd($url);
+            //dd($url);
             return false;
         }
 
